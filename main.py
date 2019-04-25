@@ -1,29 +1,38 @@
+from ClassesParser import ClassesParser
+from DadParser import DadParser
 from GraphOperations import GraphOperations
+from MethodsParser import MethodsParser
 from Parser import Parser
 
 
 if __name__ == '__main__':
     file = open('/home/stergios/Desktop/callgraph-out.txt', 'r')
 
-    parser = Parser()
-    graph_ops = GraphOperations()
+    # parser = Parser()
+    # graph_ops = GraphOperations()
+    #
+    # vertexes_for_classes = parser.parse(file)
+    # graph_ops.info_for_graph(vertexes_for_classes)
 
-    vertexes_for_classes = parser.parse(file)
 
-    # Graph initialization
-    graph_ops.make_graph(vertexes_for_classes)
+    ## TESTING
 
-    print("Betweenness Centrality: \n")
-    graph_ops.betweenness_centrality()
+    dad = DadParser(file)
+    dad.parse()
 
-    print('\n The 10 highest degree nodes are: \n')
-    # prints 10 highest degree nodes
-    graph_ops.vertexes_degree()
+    # class_parser = ClassesParser(file)
+    # methods_parser = MethodsParser(file)
+    # class_parser.show_data()
+    # methods_parser.show_data()
 
-    print('\n Modularity of graph: \n')
-    graph_ops.modularity()
+    dad.show_data_for_classes()
 
-    # TO DO
-    # parser.graph_for_methods()
-    # parser.graph_for_just_project()
+    print("\n ****************** Methods Graph **************** \n")
+
+
+    # Takes much time
+    # dad.show_data_for_methods()
+
+
+
 
