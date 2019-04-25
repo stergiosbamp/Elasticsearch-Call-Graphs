@@ -32,3 +32,18 @@ class GraphOperations:
 
         for community in greedy_modularity_communities(self.graph):
             print(set(community))
+
+    def info_for_graph(self, vertex_tuple):
+
+        # Construct the graph from the given list
+        self.make_graph(vertex_tuple)
+
+        print("Betweenness Centrality: \n")
+        self.betweenness_centrality()
+
+        print('\n The 10 highest degree nodes are: \n')
+        # prints 10 highest degree nodes
+        self.vertexes_degree()
+
+        print('\n Modularity of graph: \n')
+        self.modularity()
