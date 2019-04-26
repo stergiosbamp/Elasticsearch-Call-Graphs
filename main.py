@@ -1,9 +1,9 @@
-from ClassesParser import ClassesParser
-from DadParser import DadParser
-from GraphOperations import GraphOperations
-from MethodsParser import MethodsParser
-from Parser import Parser
+# from ClassesParser import ClassesParser
+# from GraphOperations import GraphOperations
+# from MethodsParser import MethodsParser
+# from Parser import Parser
 
+from DadParser import DadParser
 
 if __name__ == '__main__':
     file = open('/home/stergios/Desktop/callgraph-out.txt', 'r')
@@ -25,9 +25,12 @@ if __name__ == '__main__':
     # class_parser.show_data()
     # methods_parser.show_data()
 
-    dad.show_data_for_classes()
+    # dad.show_data_for_classes()
+
+    dad.make_gephi_data()
 
     print("\n ****************** Methods Graph **************** \n")
+
 
 
     # Takes much time

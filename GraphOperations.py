@@ -33,6 +33,10 @@ class GraphOperations:
         for community in greedy_modularity_communities(self.graph):
             print(set(community))
 
+    def write_gexf(self, vertex_tuple):
+        self.make_graph(vertex_tuple)
+        return nx.write_gexf(self.graph, "/home/stergios/Desktop/MyGephiData.gexf")
+
     def info_for_graph(self, vertex_tuple):
 
         # Construct the graph from the given list

@@ -34,6 +34,9 @@ class DadParser:
                 clean_vertex_two = dirty_vertex_two[3:]
                 self.connected_edges_methods.append((clean_vertex_one, clean_vertex_two))
 
+    def make_gephi_data(self):
+        self.graph_ops.write_gexf(self.connected_edges_classes)
+
     def show_data_for_classes(self):
         self.graph_ops.info_for_graph(self.connected_edges_classes)
 
