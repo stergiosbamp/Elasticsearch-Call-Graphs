@@ -33,9 +33,9 @@ class GraphOperations:
         for community in greedy_modularity_communities(self.graph):
             print(set(community))
 
-    def write_gexf(self, vertex_tuple):
+    def write_gexf(self, vertex_tuple, path):
         self.make_graph(vertex_tuple)
-        return nx.write_gexf(self.graph, "/home/stergios/Desktop/MyGephiData.gexf")
+        nx.write_gexf(self.graph, path)
 
     def info_for_graph(self, vertex_tuple):
 

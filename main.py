@@ -1,41 +1,16 @@
-# from ClassesParser import ClassesParser
-# from GraphOperations import GraphOperations
-# from MethodsParser import MethodsParser
-# from Parser import Parser
-
-from DadParser import DadParser
+from GraphOperations import GraphOperations
+from ElasticSearchParser import ElasticSearchParser
 
 if __name__ == '__main__':
-    file = open('/home/stergios/Desktop/callgraph-out.txt', 'r')
+    file = open('/home/stergios/Desktop/calls-elasticsearch.txt', 'r')
 
-    # parser = Parser()
-    # graph_ops = GraphOperations()
-    #
-    # vertexes_for_classes = parser.parse(file)
-    # graph_ops.info_for_graph(vertexes_for_classes)
+    es_parser = ElasticSearchParser(file)
+    es_parser.reducted_parse()
 
+    graph_operations = GraphOperations()
 
-    ## TESTING
+    classes_edges_tuple = es_parser.get_classes_vertices()
+    methods_edges_tuple = es_parser.get_methods_vertices()
 
-    dad = DadParser(file)
-    dad.parse()
-
-    # class_parser = ClassesParser(file)
-    # methods_parser = MethodsParser(file)
-    # class_parser.show_data()
-    # methods_parser.show_data()
-
-    # dad.show_data_for_classes()
-
-    dad.make_gephi_data()
-
-    print("\n ****************** Methods Graph **************** \n")
-
-
-
-    # Takes much time
-    # dad.show_data_for_methods()
-
-
-
-
+    graph_operations.write_gexf(classes_edges_tuple, "/home/stergios/Desktop/class_graph.gexf")
+    graph_operations.write_gexf(methods_edges_tuple, "/home/stergios/Desktop/methods_graph.gexf")
