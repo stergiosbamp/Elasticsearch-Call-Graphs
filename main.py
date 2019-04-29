@@ -1,10 +1,10 @@
 from GraphOperations import GraphOperations
-from ElasticSearchParser import ElasticSearchParser
+from Parser import Parser
 
 if __name__ == '__main__':
     file = open('/home/stergios/Desktop/calls-elasticsearch.txt', 'r')
 
-    es_parser = ElasticSearchParser(file)
+    es_parser = Parser(file)
     es_parser.reducted_parse()
 
     graph_operations = GraphOperations()
@@ -14,3 +14,7 @@ if __name__ == '__main__':
 
     graph_operations.write_gexf(classes_edges_tuple, "/home/stergios/Desktop/class_graph.gexf")
     graph_operations.write_gexf(methods_edges_tuple, "/home/stergios/Desktop/methods_graph.gexf")
+
+    # graph_operations.write_gexf(classes_edges_tuple, "/home/stergios/Desktop/directed_classes.gexf")
+    # graph_operations.write_gexf(methods_edges_tuple, "/home/stergios/Desktop/directed_methods.gexf")
+

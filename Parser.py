@@ -1,7 +1,7 @@
 from GraphOperations import GraphOperations
 
 
-class ElasticSearchParser:
+class Parser:
 
     def __init__(self, f):
         self.file = f
@@ -62,8 +62,6 @@ class ElasticSearchParser:
     def is_in_project(self, v_one, v_two):
         if "org.elasticsearch" in v_one and "org.elasticsearch" in v_two:
             return True
-
-
 
     def make_gephi_data(self):
         self.graph_ops.write_gexf(self.connected_edges_classes)

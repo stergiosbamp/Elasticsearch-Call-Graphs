@@ -6,7 +6,8 @@ from networkx.algorithms.community import greedy_modularity_communities
 class GraphOperations:
 
     def __init__(self):
-        self.graph = nx.Graph()
+        # self.graph = nx.Graph()
+        self.graph = nx.DiGraph()
 
     def connect_edges(self, u, v):
         self.graph.add_edge(u, v)
@@ -18,9 +19,10 @@ class GraphOperations:
     def betweenness_centrality(self):
         print(nx.betweenness_centrality(self.graph))
 
-    def make_graph(self, vertex_list):
-        for pair in vertex_list:
-            self.connect_edges(pair[0], pair[1])
+    def make_graph(self, vertex_tuple):
+        self.graph.add_edges_from(vertex_tuple)
+        # for pair in vertex_list:
+        #     self.connect_edges(pair[0], pair[1])
 
     def vertexes_degree(self):
         node_dict = {node: degree for (node, degree) in self.graph.degree}
