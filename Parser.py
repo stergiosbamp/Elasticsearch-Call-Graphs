@@ -6,9 +6,6 @@ class Parser:
     def __init__(self, f):
         self.file = f
 
-        # Those list initializing again when calling children classes
-        # and are empty although in begging they are ok
-
         self.connected_edges_classes = []
         self.connected_edges_methods = []
 
@@ -16,10 +13,8 @@ class Parser:
 
         self.graph_ops = GraphOperations()
 
-    # Having the edges of each category as an attribute
-    # it doesn't need to iterate through the whole list again
-    # at children classes. I have the lists ready by iterating once.
-
+    # Creating lists of edges
+   
     def parse(self):
         for line in self.file:
             if line[0] == 'C':
